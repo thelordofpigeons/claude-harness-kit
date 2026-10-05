@@ -90,7 +90,7 @@ HOST_ALLOW = (
     "anthropic.com", "claude.com", "github.com", "localhost", "127.0.0.1", "0.0.0.0",
     "example.com", "example.org", "example.net", "json.schemastore.org", "json-schema.org",
     "prettier.io", "eslint.org", "www.typescriptlang.org", "nodejs.org", "pytest.org",
-    "orm.drizzle.team", "www.npmjs.com", "npmjs.com",
+    "orm.drizzle.team", "www.npmjs.com", "npmjs.com", "img.shields.io",
 )
 
 
