@@ -1,0 +1,43 @@
+/* fixture: fully clean. Tokens in :root, custom-property references only,
+   distinctive typefaces, extreme weight contrast, visible focus styles. */
+
+:root {
+  --color-bg: #f7f4ef;
+  --color-ink: #1a1714;
+  --color-accent: #336699;
+  --font-display: "Clash Display", serif;
+  --font-body: "Space Grotesk", sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.eyebrow {
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.card {
+  min-height: 100dvh;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}

@@ -1,0 +1,74 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/brain-loaded.sh" },
+          { "type": "command", "command": "node ~/.claude/hooks/audit-report.mjs" }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/session-start.sh" },
+          { "type": "command", "command": "bash ~/.claude/hooks/workflow-gate.sh" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/task-gate-reminder.sh" }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/filter-noisy-bash.sh" },
+          { "type": "command", "command": "bash ~/.claude/hooks/pre-deploy-validate.sh" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/git-commit-reminder.sh" }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/design-lint-hook.sh" },
+          { "type": "command", "command": "bash ~/.claude/hooks/frontend-format.sh" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/frontend-typecheck.sh", "timeout": 180 },
+          { "type": "command", "command": "bash ~/.claude/hooks/checkpoint-session.sh" }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash ~/.claude/hooks/session-end.sh" },
+          { "type": "command", "command": "node ~/.claude/hooks/dev-server-reaper.mjs", "timeout": 30 }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline.sh"
+  },
+  "permissions": {
+    "allow": [],
+    "deny": []
+  }
+}

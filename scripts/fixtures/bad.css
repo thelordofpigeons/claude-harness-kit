@@ -1,0 +1,42 @@
+/* fixture: intentionally slop-ridden. Every hit here is on purpose. */
+
+:root {
+  --brand: #336699; /* allowed: hex inside :root */
+}
+
+.card {
+  transition: all 0.3s ease;
+  height: 100vh;
+  background: #ffffff;
+  border-color: #fff;
+  outline: none;
+}
+
+.sidebar {
+  transition: width 0.2s ease-in-out;
+}
+
+@keyframes slide-open {
+  from { margin-left: 0; }
+  to { margin-left: 240px; }
+}
+
+.hero {
+  background: linear-gradient(135deg, violet 0%, indigo 100%);
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+}
+
+.body-copy {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+}
+
+.footer {
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-style: italic;
+}

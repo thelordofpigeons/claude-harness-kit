@@ -1,0 +1,23 @@
+# Private scanner inputs, never committed
+.hygiene/
+
+# Local state and secrets the harness writes
+current-task*
+usage-cache*
+.credentials*
+settings.local.json
+.env*
+
+# Logs, caches, build output
+*.log
+*.pyc
+__pycache__/
+.pytest_cache/
+node_modules/
+
+# Backups and sync artifacts
+*.bak
+*.sync-conflict-*
+
+# Gated memory tier
+memory/telos-templates/sensitive/
